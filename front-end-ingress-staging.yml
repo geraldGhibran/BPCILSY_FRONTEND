@@ -1,7 +1,7 @@
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: client-ingress
+  name: client-ingress-staging
   namespace: client-staging
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
@@ -9,10 +9,14 @@ metadata:
     cert-manager.io/issuer: "client-staging"
 spec:
   rules:
-    - host: client.vladgerald.tech
+    - host: client.staging.vladgerald.tech
       http:
         paths:
           #- path: /belajar
           - backend:
-              serviceName: client-service
+              serviceName: client-service-staging
               servicePort: 80
+  tls:
+    - hosts:
+        - client.staging.vladgerald.tech
+      secretName: client-prod-tls

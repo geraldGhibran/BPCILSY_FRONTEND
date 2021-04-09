@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: client-service
+  name: client-service-staging
   namespace: client-staging
 spec:
   ports:
@@ -9,5 +9,5 @@ spec:
       protocol: TCP
       targetPort: http-port
   selector:
-    app: client
+    app: client-staging
 #  type: LoadBalancer

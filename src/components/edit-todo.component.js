@@ -21,7 +21,7 @@ export default class EditTodo extends Component {
     }
 
     componentDidMount() {
-        axios.get('https://backend.prod.vladgerald.tech/todos/'+this.props.match.params.id)
+        axios.get('https://backend.staging.vladgerald.tech/todos/'+this.props.match.params.id)
             .then(response => {
                 this.setState({
                     todo_description: response.data.todo_description,
@@ -68,7 +68,7 @@ export default class EditTodo extends Component {
             todo_completed: this.state.todo_completed
         };
         console.log(obj);
-        axios.post('https://backend.prod.vladgerald.tech/todos/update/'+this.props.match.params.id, obj)
+        axios.post('https://backend.staging.vladgerald.tech/todos/update/'+this.props.match.params.id, obj)
             .then(res => console.log(res.data));
         
         this.props.history.push('/');
