@@ -17,7 +17,7 @@ node('master') {
         sh "kubectl create namespace client-prod"
         sh "kubectl replace -f /var/lib/jenkins/BPCILSY/mern-todo-app/front-end-ssl-prod.yml --force -n client-prod"
         sh'''cd /var/lib/jenkins/BPCILSY/mern-todo-app/ && sed -i "15d" front-end-deployment-prod.yml'''
-        sh'''cd /var/lib/jenkins/BPCILSY/mern-todo-app/ && sed -i "14 a \'\\'        image: vanillavladimir/$DOCKER_IMAGE_NAME:${BUILD_NUMBER}" front-end-deployment-prod.yml && sed -i "s/''//" front-end-deployment-prod.yml'''
+        sh'''cd /var/lib/jenkins/BPCILSY/mern-todo-app/ && sed -i "14 a \'\\'          image: vanillavladimir/$DOCKER_IMAGE_NAME:${BUILD_NUMBER}" front-end-deployment-prod.yml && sed -i "s/''//" front-end-deployment-prod.yml'''
         sh "cd /var/lib/jenkins/BPCILSY/mern-todo-app/ && kubectl replace -f front-end-deployment-prod.yml -n client-prod --force"
         sh "kubectl replace -f /var/lib/jenkins/BPCILSY/mern-todo-app/front-end-service-prod.yml --force -n client-prod"
         sh "kubectl replace -f /var/lib/jenkins/BPCILSY/mern-todo-app/front-end-ingress-prod.yml --force -n client-prod"
