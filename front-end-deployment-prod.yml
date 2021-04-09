@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: client-deployment-prod
+  namespace: client-prod
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: client-prod
+    spec:
+      containers:
+        - name: client-prod
+          image: vanillavladimir/client-prod:latest
+          ports:
+            - containerPort: 3000
+              name: http-port
+  selector:
+    matchLabels:
+      app: client-prod
+
