@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: server-deployment
+  name: server-deployment-backend-staging
   namespace: backend-staging
 spec:
   replicas: 1
   template:
     metadata:
       labels:
-        app: server
+        app: backend-staging
     spec:
       containers:
-        - name: server
-          image: vanillavladimir/backend:latest
+        - name: backend-staging
+          image: vanillavladimir/backend-staging:1
           ports:
             - containerPort: 4000
               name: nodejs-port
   selector:
     matchLabels:
-      app: server
+      app: backend-staging

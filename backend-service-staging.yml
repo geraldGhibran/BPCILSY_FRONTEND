@@ -1,14 +1,14 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: server-service
+  name: server-service-backend-staging
   namespace: backend-staging
 spec:
   ports:
     - port: 4000
       protocol: TCP
   selector:
-    app: server
+    app: backend-staging
 #  template:
 #    metadata:
 #      labels:
