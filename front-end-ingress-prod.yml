@@ -16,3 +16,7 @@ spec:
           - backend:
               serviceName: client-service-prod
               servicePort: 80
+  tls:
+    - hosts:
+        - client.prod.vladgerald.tech
+      secretName: client-prod-tls

@@ -1,0 +1,22 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: server-ingress
+  namespace: backend-prod
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    kubernetes.io/ingress.class: "nginx"
+    cert-manager.io/issuer: "backend-prod"
+spec:
+  rules:
+    - host: backend.prod.vladgerald.tech
+      http:
+        paths:
+          #- path: /belajar
+          - backend:
+              serviceName: server-service-backend-prod
+              servicePort: 4000
+  tls:
+    - hosts:
+        - backend.prod.vladgerald.tech
+      secretName: backend-prod-tls
