@@ -8,8 +8,8 @@
 * `adminmongo` with AdminMongo on `http://localhost:1234` route
 
 Docker images available
-* `client` >> [sekolahdevopscilsy/mern-docker_client](https://hub.docker.com/repository/docker/sekolahdevopscilsy/client)
-* `server` >> [sekolahdevopscilsy/mern-docker_server](https://hub.docker.com/repository/docker/sekolahdevopscilsy/server)
+* `MANIFEST MONITORING` >> https://github.com/geraldGhibran/BIGPROJECT_MERN.git
+* `BACKEND` >> https://github.com/geraldGhibran/BPCILSY_BACKEND.git
 
 ## Usage
 
